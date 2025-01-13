@@ -12,3 +12,17 @@ The paths dependant models (Monte-Carlo and LSM) contains 3 distribution types:
 - LogNormal (or Geometric Brownian Motion)
 - Merton Jump diffusion
 - Variance Gamma
+
+User guide:
+```python
+# The necessary modules must be imported
+from option_pricer import VanillaOption
+from pricing_models import BlackScholes, MonteCarlo, LeastSquareMonteCarlo, CoxRossRubstein
+from distribution_models import LogNormalDistribution, MertonJumpDiffusion, VarianceGamma
+
+# An object containing the option must be created
+call_100 = VanillaOption(S, K, T, r, sigma, q, "call")
+
+#The model choosen can be inputed into the price and get_greeks method as follow:
+call_100.price(BlackScholes)
+call_100.get_greeks(BlackScholes)
